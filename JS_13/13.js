@@ -6,6 +6,8 @@ let cate1 = [
    '収納家具・収納グッズ',
    '子ども家具'
 ];
+cate1.push('調理器具');  //大分類の追加
+
 
 // 小分類
 let cate2 = [
@@ -15,6 +17,8 @@ let cate2 = [
    ['家具・ラック', '収納システム'],                      // 収納家具・収納グッズ'のカテゴリ
    ['子ども部屋家具', 'ベビー家具・ベビーグッズ']         // 子ども家具
 ];
+cate2.push(['包丁', 'フライパン', 'まな板']);  //小分類の追加
+
 
 // 商品の定義
 var itemList = [
@@ -29,6 +33,27 @@ var itemList = [
    { id: '0009', name: 'ダイニングテーブル', tags: ['テーブル・椅子'] },
    { id: '0010', name: '子ども部屋用収納', tags: ['収納システム', '子ども部屋家具'] },
 ];
+//商品の追加
+itemList.push({ id: '0011', name: 'チタンのフライパン', tags: ['フライパン'] });
+itemList.push({ id: '0012', name: '鉄のフライパン', tags: ['フライパン'] });
+itemList.push({ id: '0013', name: 'チタンの包丁', tags: ['包丁'] });
+itemList.push({ id: '0014', name: '傷の付きにくいまな板', tags: ['まな板'] });
+
+//商品のカラムを追加
+itemList[0].price ='400';
+itemList[1].price ='500';
+itemList[2].price ='450';
+itemList[3].price ='200';
+itemList[4].price ='100';
+itemList[5].price ='800';
+itemList[6].price ='700';
+itemList[7].price ='550';
+itemList[8].price ='850';
+itemList[9].price ='600';
+itemList[10].price ='350';
+itemList[11].price ='250';
+itemList[12].price ='800';
+itemList[13].price ='900';
 
 
 //--- 共通で使用する要素を取得 ---
@@ -71,7 +96,7 @@ function viewItemList(tag) {
    for (let i = 0; i < itemList.length; i++) {
       if (itemList[i].tags.some(t => t === tag)) {
          let li = document.createElement('li');
-         let text = document.createTextNode(itemList[i].id + ':' + itemList[i].name);
+         let text = document.createTextNode(itemList[i].id + ':' + itemList[i].name + ' : ' + itemList[i].price + '円');
          li.appendChild(text);
          itemListElement.appendChild(li);
       }
