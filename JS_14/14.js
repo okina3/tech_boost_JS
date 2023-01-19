@@ -1,8 +1,8 @@
-var a = [1,2,3];
+let a = [1,2,3];
 
 try {
    console.log(a[i]);  
 } catch (e) {
    console.log(e);
 }
-console.log('end');
+console.log('エラーが起きても表示されるよ。');
