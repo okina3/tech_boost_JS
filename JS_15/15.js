@@ -51,19 +51,54 @@ class Bed extends Item {
    }
 }
 
+
+// 椅子クラスの生成（継承）
+class Chair extends Item {
+   constructor(id, name, stock, state) {
+      // 引数の値を使ってプロパティの初期化を行う
+      super(id, name, stock);
+      this.state = state;            // 商品の状態
+   }
+
+   getState() {
+      if (this.state === '新品') {
+         return this.state;
+      }
+      if (this.state === '中古') {
+         return this.state;
+      }
+   }
+}
+
+//アンティークの椅子クラスの生成（継承）
+class Antique_Chair extends Chair {
+   constructor(id, name, stock, state, created) {
+      super(id, name, stock, state);
+      this.created = created;            // 商品の作成日
+   }
+
+   getDate() {
+      return this.created;
+   }
+}
+
+
 // インスタンスの生成
 let bed1 = new Bed('0001', 'ソファベッド', 100, 'M');
 let bed2 = new Bed('0002', 'シングルベッド', 100, 'S');
 let bed3 = new Bed('0003', '子ども用ベッド', 10, 'S');
 let item4 = new Item('0004', '鍋', 100);
+let chair1 = new Chair('0005', '鉄製チェア', 10, '新品');
+let chair2 = new Chair('0006', '木製チェア', 5, '中古');
+let antique_chair1 = new Antique_Chair('0007', '真鍮チェア', 2, '中古', '1900年頃');
+let antique_chair2 = new Antique_Chair('0007', '銅チェア', 1, '中古', '1800年頃');
 
-let itemList = [bed1, bed2, bed3, item4]
+
+let itemList = [bed1, bed2, bed3, item4, chair1, chair2, antique_chair1, antique_chair2]
 
 itemList.forEach((e) => {
    console.log(e);
 })
-
-
 
 //　全体の在庫数を確認
 let totalStock = 0;
