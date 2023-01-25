@@ -85,7 +85,7 @@ function viewItemList(tag) {
 
             // 商品情報
             html += "<td>";
-            html += '<img src="img/item-sample.jpg" alt="商品の名前" width="180" height="123" />';
+            html += '<img src="img/reds1230D002_TP_V4.jpg" alt="商品の名前" width="180" height="123" />';
             html += '<p>商品名：&nbsp;' + itemList[i].name + '</p>';
             html += '<p>価格：&nbsp;&yen;' + itemList[i].price + '</p>';
             html += '<span><i class="fas fa-shopping-cart">ショッピングカート</i></span>';
