@@ -1,28 +1,8 @@
+//--- データの定義 ---
+let cate1 = [];     //大分類
+let cate2 = [];    // 小分類
 let itemList = [];      // 商品一覧
 
-//--- データの定義 ---
-// 大分類
-let cate1 = [
-   '---',                  // 未選択
-   '家具',
-   'ベッド・マットレス',
-   '収納家具・収納グッズ',
-   '子ども家具'
-];
-
-// 小分類
-let cate2 = [
-   // 未選択
-   ['---'],
-   // 家具のカテゴリ
-   ['ベッド', 'ソファ', '棚・ラック', 'テーブル・椅子'],
-   // ベッド・マットレスのカテゴリ
-   ['ベッド', '寝具', 'マットレス'],
-   // 収納家具・収納グッズ'のカテゴリ
-   ['家具・ラック', '収納システム'],
-   // 子ども家具
-   ['子ども部屋家具', 'ベビー家具・ベビーグッズ']
-];
 
 //--- 共通で使用する要素を取得 ---
 // 大分類のselectをid属性により取得
@@ -123,6 +103,36 @@ cate2Element.addEventListener('change', function () {
    viewItemList(val);
 });
 
+// ---------------------------------------
+
+//大分類をファイルから取得
+$(function () {
+   $.ajax({
+      url: 'json/Catergory.json',
+      dataType: 'json'
+   })
+      .done(function (data) {
+         cate1 = data;
+      })
+      .fail(function () {
+         alert("ファイルが読み込めませんでした");
+      });
+});
+
+//小分類をファイルから取得
+$(function () {
+   $.ajax({
+      url: 'json/SubCatergory.json',
+      dataType: 'json'
+   })
+      .done(function (data) {
+         cate2 = data;
+      })
+      .fail(function () {
+         alert("ファイルが読み込めませんでした");
+      });
+});
+
 // 商品一覧をファイルから取得
 $(function () {
    $.ajax({
@@ -138,3 +148,5 @@ $(function () {
          alert("ファイルが読み込めませんでした");
       });
 });
+
+
