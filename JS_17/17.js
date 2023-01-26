@@ -1,3 +1,4 @@
+
 const apiKey = 'DEMO_KEY';
 
 $(function () {
