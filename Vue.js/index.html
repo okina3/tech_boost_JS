@@ -9,7 +9,11 @@
 <body>
    <!-- Vueデータを出力する場所 -->
    <div id="app">
-
+      <select>
+         <option v-for="msg in msgs">
+            {{msg}}
+         </option>
+      </select>
    </div>
 
    <script src="20.js" charset="UTF-8"></script>
